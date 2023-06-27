@@ -1,0 +1,55 @@
+DESCRPITION OF CHESS ENGINE WITH THE HELP OF PSEUDO CODE:
+
+class ChessEngine:
+    def __init__(self):
+        self.board = Board()
+        self.move_generator = MoveGenerator()
+        self.evaluator = Evaluator()
+        self.search_algorithm = SearchAlgorithm()
+
+    def make_move(self):
+        legal_moves = self.move_generator.generate_moves(self.board)
+        best_move = self.search_algorithm.search(self.board, legal_moves)
+        self.board.make_move(best_move)
+
+    def evaluate_position(self):
+        score = self.evaluator.evaluate(self.board)
+        return score
+
+    def play_game(self):
+        while not self.board.is_game_over():
+            self.make_move()
+            self.board.print_board()
+            score = self.evaluate_position()
+            print("Position score:", score)
+
+class Board:
+    def __init__(self):
+        # Initialize the chessboard and piece positions
+
+    def make_move(self, move):
+        # Update the board state after a move is made
+
+    def is_game_over(self):
+        # Check if the game is over
+
+    def print_board(self):
+        # Print the current board state
+
+class MoveGenerator:
+    def generate_moves(self, board):
+        # Generate all legal moves for the current position
+
+class Evaluator:
+    def evaluate(self, board):
+        # Evaluate the current position and assign a score
+
+class SearchAlgorithm:
+    def search(self, board, legal_moves):
+        # Use a search algorithm to find the best move
+
+# Create an instance of the ChessEngine and play a game
+engine = ChessEngine()
+engine.play_game()
+
+This example demonstrates the basic structure of a chess engine using OOP principles. The ChessEngine class encapsulates the core functionality, including the board representation, move generation, position evaluation, and search algorithm. The Board class handles the chessboard and its state, while the MoveGenerator generates legal moves. The Evaluator assigns a score to a position, and the SearchAlgorithm performs the search for the best move. The play_game() method orchestrates the engine's moves and evaluates the position after each move.
